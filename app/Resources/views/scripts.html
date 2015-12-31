@@ -1,0 +1,261 @@
+<!-- SCRPT:: Disco DURO -->
+<script type="text/javascript">
+   // setup an "add a tag" link
+    var $addDiscLink = $('<a href="#" class="btn btn-round btn-primary">+ Disco duro</a>');
+    var $newDiLi = $('<li></li>').append($addDiscLink);
+
+    jQuery(document).ready(function() {
+        
+        // Get the ul that holds the collection of tags
+       var $collectionHolder = $('#deteccionbundle_cpu_discos');
+        
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionHolder.append($newDiLi);
+        
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionHolder.data('index', $collectionHolder.find(':input').length);
+        
+        $addDiscLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+            
+            // add a new tag form (see code block below)
+            addDiscForm($collectionHolder, $newDiLi);
+        });
+        
+        
+    });
+
+    function addDiscForm($collectionHolder, $newDiLi) {
+        // Get the data-prototype explained earlier
+        var prototype1 = $collectionHolder.data('prototype');
+        
+        // get the new index
+        var index = $collectionHolder.data('index');
+        
+        // Replace '$$name$$' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm1 = prototype1.replace(/__name__/g, index);
+        
+        // increase the index with one for the next item
+        $collectionHolder.data('index', index + 1);
+        
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newF1 = $('<div class="alert alert-info fade in"></div>').append(newForm1);
+        
+        // also add a remove button, just for this example
+        $newF1.append('<a href="#" id="rd" class="fa fa-times"></a>');
+        
+        $newDiLi.before($newF1);
+        
+        // handle the removal, just for this example
+        $('#rd').click(function(e) {
+            e.preventDefault();
+            
+            $(this).parent().remove();
+            
+            return false;
+        });
+    }
+</script>
+
+<!-- SCRPT:: Memoria RAM -->
+
+<script type="text/javascript">
+    // setup an "add a tag" link
+    var $addRam = $('<a href="#" class="btn btn-warning">+ RAM</a>');
+    var $newLinkLi = $('<li></li>').append($addRam);
+
+    jQuery(document).ready(function() {
+        // Get the ul that holds the collection of tags
+       var $CH2 = $('#deteccionbundle_cpu_memorias');
+        
+        // add the "add a tag" anchor and li to the tags ul
+        $CH2.append($newLinkLi);
+        
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $CH2.data('index', $CH2.find(':input').length);
+        
+        $addRam.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+            
+            // add a new tag form (see code block below)
+            addRamForm($CH2, $newLinkLi);
+        });
+        
+        
+    });
+
+    function addRamForm($CH2, $newLinkLi) {
+        // Get the data-prototype explained earlier
+        var prototype = $CH2.data('prototype');
+        
+        // get the new index
+        var index = $CH2.data('index');
+        
+        // Replace '$$name$$' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+        
+        // increase the index with one for the next item
+        $CH2.data('index', index + 1);
+        
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormLi = $('<li></li>').append(newForm);
+        
+        // also add a remove button, just for this example
+        $newFormLi.append('<a href="#" class="remove-tag">x</a>');
+        
+        $newLinkLi.before($newFormLi);
+        
+        // handle the removal, just for this example
+        $('.remove-tag').click(function(e) {
+            e.preventDefault();
+            
+            $(this).parent().remove();
+            
+            return false;
+        });
+    }
+</script>
+
+<!-- SCRPT:: Memoria TRED -->
+<script type="text/javascript">
+    // setup an "add a tag" link
+    var $addTred = $('<a href="#" class="btn btn-warning">+ T.RED</a>');
+    var $newTredLink = $('<li></li>').append($addTred);
+
+    jQuery(document).ready(function() {
+        // Get the ul that holds the collection of tags
+       var $CH4 = $('#deteccionbundle_cpu_tredes');
+        
+        // add the "add a tag" anchor and li to the tags ul
+        $CH4.append($newTredLink);
+        
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $CH4.data('index', $CH4.find(':input').length);
+        
+        $addTred.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+            
+            // add a new tag form (see code block below)
+            addTagForm($CH4, $newTredLink);
+        });
+        
+        
+    });
+
+    function addTagForm($CH4, $newTredLink) {
+        // Get the data-prototype explained earlier
+        var prototype = $CH4.data('prototype');
+        
+        // get the new index
+        var index = $CH4.data('index');
+        
+        // Replace '$$name$$' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+        
+        // increase the index with one for the next item
+        $CH4.data('index', index + 1);
+        
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormLi = $('<li></li>').append(newForm);
+        
+        // also add a remove button, just for this example
+        $newFormLi.append('<a href="#" class="remove-tag">x</a>');
+        
+        $newTredLink.before($newFormLi);
+        
+        // handle the removal, just for this example
+        $('.remove-tag').click(function(e) {
+            e.preventDefault();
+            
+            $(this).parent().remove();
+            
+            return false;
+        });
+    }
+</script>
+
+<!-- SCRPT:: Memoria UOPTICAS -->
+<script type="text/javascript">
+    // setup an "add a tag" link
+    var $addUopt = $('<a href="#" class="btn btn-warning">+ U. OPTICA</a>');
+    var $newUopLink = $('<li></li>').append($addUopt);
+
+    jQuery(document).ready(function() {
+        // Get the ul that holds the collection of tags
+       var $CH5 = $('#deteccionbundle_cpu_uopticas');
+        
+        // add the "add a tag" anchor and li to the tags ul
+        $CH5.append($newUopLink);
+        
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $CH5.data('index', $CH5.find(':input').length);
+        
+        $addUopt.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+            
+            // add a new tag form (see code block below)
+            addTagForm($CH5, $newUopLink);
+        });
+        
+        
+    });
+
+    function addTagForm($CH5, $newUopLink) {
+        // Get the data-prototype explained earlier
+        var prototype = $CH5.data('prototype');
+        
+        // get the new index
+        var index = $CH5.data('index');
+        
+        // Replace '$$name$$' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+        
+        // increase the index with one for the next item
+        $CH5.data('index', index + 1);
+        
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormLi = $('<li></li>').append(newForm);
+        
+        // also add a remove button, just for this example
+        $newFormLi.append('<a href="#" class="remove-tag">x</a>');
+        
+        $newUopLink.before($newFormLi);
+        
+        // handle the removal, just for this example
+        $('.remove-tag').click(function(e) {
+            e.preventDefault();
+            
+            $(this).parent().remove();
+            
+            return false;
+        });
+    }
+</script>
+
+<!-- DETECCION -->
+<script type="text/javascript">
+    $("#escanear").click(function(){
+        var dato = $("#form_seg1").val();
+        var route = "http://127.0.0.1:8000/deteccion/iniciar";
+        alert("Alohaaa");
+
+        $.ajax({
+            url: route,
+            type: 'POST',
+            dataType: 'json',
+            data:{form_seg1: dato}
+        })
+    });
+</script>

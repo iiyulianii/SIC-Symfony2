@@ -1,0 +1,113 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">                
+            <section class="panel">
+                <header class="panel-heading">Deteccion Automática</header>
+                <div class="panel-body" id="limpiar">
+                    {{ form_start(form, {'attr': {'class': 'form-inline'}}) }}
+                    
+                        <div class="form-group">
+                            {{ form_widget(form.seg1, {'attr': {'class': 'form-control'}}) }}
+                            <span>-</span>     
+                        </div>                        
+                        <div class="form-group">
+                            {{ form_widget(form.seg2, {'attr': {'class': 'form-control'}}) }}
+                            <span>-</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_widget(form.seg3, {'attr': {'class': 'form-control'}}) }}
+                            <span>-</span>
+                        </div> 
+                        <div class="form-group">
+                            {{ form_widget(form.seg4, {'attr': {'class': 'form-control'}}) }}
+                            <span> / </span>
+                        </div> 
+                        <div class="form-group">
+                            {{ form_widget(form.seg5, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        {{ form_widget(form.detectar, {'id':'escanear','attr': {'class': 'btn btn-success'}}) }}                        
+                    {{ form_end(form) }}
+                </div>
+            </section>
+            {# ALERT #}
+            <div id="msj" class="alert alert-block alert-danger fade in" style="display: none">
+                <button data-dismiss="alert" class="close close-sm" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+                <div id="offline"></div>
+            </div>
+            {# MODAL #}
+            <div id="progreso" class="modal fade in" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                              <h4 class="modal-title">
+                                  <strong>Escaneando lista de direcciones IP...</strong>
+                                    <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                              </h4>
+                          </div>
+                          <div class="modal-body">
+                              Porfavor espere....
+                          </div>                          
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script>
+    $(document).ready(function() {
+        var info;
+        $('form.form-inline').submit(function(){ //en el evento submit del fomulario
+            event.preventDefault();  //detenemos el comportamiento por default
+            $("#msj").fadeOut();
+            var url = $(this).attr('action');  //la url del action del formulario
+            var datos = $(this).serialize(); // los datos del formulario
+            
+            $("#progreso").fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: url,                
+                data: datos,
+                dataType: 'json',
+                success:function(data){
+                    if (data['validacion']) {
+
+                        var online = data['online'];
+                        var info = JSON.stringify(online);
+                        //var route = "{{ path('deteccion_save', { 'online': "variable" }) }}";
+                        //window.location = route.replace("variable", arr);
+                        document.location.href = "../deteccion/save/"+info;
+                        $("#opciones").fadeIn();
+                    }else{
+                        $("#progreso").fadeOut();
+                        $("#msj").fadeIn();
+                        $("#offline").html("");
+                        if (data['validacion2']) {
+                            $("#msj").append("<h4><strong>¡Equipos desconectados!</strong></h4> <strong>Las siguientes direcciones se encuentran fuera de linea:</strong> ");
+                            $.each(data['offline'], function (i, elemento) {
+                                $("#offline").append("<p><strong>"+elemento+"</strong></p>");
+                            });
+                            $("#msj").append("<input type='button' class='btn btn-danger' id='ejecutar_proceso' value='Omitir y continuar'>")
+                            $('#msj').on("click", "#ejecutar_proceso", function(){
+                                var online = data['online'];
+                                var info = JSON.stringify(online);
+                                document.location.href = "../deteccion/save/"+info;
+                            });
+                        }else{
+                            $("#offline").append("<p><h3><strong>Todo el rango de IP se encuentra Offline</strong></h3><strong>Por favor realize la deteccion nuevamente!</strong></p>");
+                        };
+                    };                   
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

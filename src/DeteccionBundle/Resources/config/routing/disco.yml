@@ -1,0 +1,30 @@
+disco:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Disco:index" }
+
+disco_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Disco:show" }
+
+disco_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Disco:new" }
+
+disco_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Disco:create" }
+    methods:  POST
+
+disco_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Disco:edit" }
+
+disco_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Disco:update" }
+    methods:  [POST, PUT]
+
+disco_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Disco:delete" }
+    methods:  [POST, DELETE]

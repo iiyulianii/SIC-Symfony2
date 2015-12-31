@@ -1,0 +1,30 @@
+uoptica:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Uoptica:index" }
+
+uoptica_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Uoptica:show" }
+
+uoptica_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Uoptica:new" }
+
+uoptica_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Uoptica:create" }
+    methods:  POST
+
+uoptica_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Uoptica:edit" }
+
+uoptica_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Uoptica:update" }
+    methods:  [POST, PUT]
+
+uoptica_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Uoptica:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,30 @@
+aplicativo:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Aplicativo:index" }
+
+aplicativo_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Aplicativo:show" }
+
+aplicativo_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Aplicativo:new" }
+
+aplicativo_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Aplicativo:create" }
+    methods:  POST
+
+aplicativo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Aplicativo:edit" }
+
+aplicativo_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Aplicativo:update" }
+    methods:  [POST, PUT]
+
+aplicativo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Aplicativo:delete" }
+    methods:  [POST, DELETE]

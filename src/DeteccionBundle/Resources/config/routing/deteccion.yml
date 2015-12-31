@@ -1,0 +1,20 @@
+# deteccion:
+#     path:     /
+#     defaults: { _controller: "DeteccionBundle:Deteccion:index" }
+
+deteccion_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Deteccion:show" }
+
+deteccion_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Deteccion:new" }
+
+deteccion_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Deteccion:create" }
+    methods:  POST
+
+deteccion_save:
+    path:     /deteccion/save/{online}
+    defaults: { _controller: DeteccionBundle:Guardar:save }

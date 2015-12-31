@@ -1,0 +1,30 @@
+conf_red:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Conf_red:index" }
+
+conf_red_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Conf_red:show" }
+
+conf_red_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Conf_red:new" }
+
+conf_red_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Conf_red:create" }
+    methods:  POST
+
+conf_red_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Conf_red:edit" }
+
+conf_red_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Conf_red:update" }
+    methods:  [POST, PUT]
+
+conf_red_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Conf_red:delete" }
+    methods:  [POST, DELETE]

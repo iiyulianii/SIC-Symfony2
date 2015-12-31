@@ -1,0 +1,30 @@
+tred:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Tred:index" }
+
+tred_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Tred:show" }
+
+tred_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Tred:new" }
+
+tred_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Tred:create" }
+    methods:  POST
+
+tred_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Tred:edit" }
+
+tred_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Tred:update" }
+    methods:  [POST, PUT]
+
+tred_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Tred:delete" }
+    methods:  [POST, DELETE]

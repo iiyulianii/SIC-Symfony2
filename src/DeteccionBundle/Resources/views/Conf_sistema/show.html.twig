@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Conf_sistema</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nso</th>
+                <td>{{ entity.nso }}</td>
+            </tr>
+            <tr>
+                <th>Vso</th>
+                <td>{{ entity.vso }}</td>
+            </tr>
+            <tr>
+                <th>Aso</th>
+                <td>{{ entity.aso }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('conf_sistema') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('conf_sistema_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Conf_red</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ entity.ip }}</td>
+            </tr>
+            <tr>
+                <th>Ms</th>
+                <td>{{ entity.ms }}</td>
+            </tr>
+            <tr>
+                <th>Pe</th>
+                <td>{{ entity.pe }}</td>
+            </tr>
+            <tr>
+                <th>Dns1</th>
+                <td>{{ entity.dns1 }}</td>
+            </tr>
+            <tr>
+                <th>Dns2</th>
+                <td>{{ entity.dns2 }}</td>
+            </tr>
+            <tr>
+                <th>Mac</th>
+                <td>{{ entity.mac }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('conf_red') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('conf_red_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

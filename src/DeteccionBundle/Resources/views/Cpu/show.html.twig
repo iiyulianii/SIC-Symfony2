@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Cpu</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nse</th>
+                <td>{{ entity.nse }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Fab</th>
+                <td>{{ entity.fab }}</td>
+            </tr>
+            <tr>
+                <th>Sepro</th>
+                <td>{{ entity.sepro }}</td>
+            </tr>
+            <tr>
+                <th>Nopro</th>
+                <td>{{ entity.nopro }}</td>
+            </tr>
+            <tr>
+                <th>Nupro</th>
+                <td>{{ entity.nupro }}</td>
+            </tr>
+            <tr>
+                <th>Vepro</th>
+                <td>{{ entity.vepro }}</td>
+            </tr>
+            <tr>
+                <th>Lopro</th>
+                <td>{{ entity.lopro }}</td>
+            </tr>
+            <tr>
+                <th>Fapro</th>
+                <td>{{ entity.fapro }}</td>
+            </tr>
+            <tr>
+                <th>Arpro</th>
+                <td>{{ entity.arpro }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('cpu') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('cpu_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

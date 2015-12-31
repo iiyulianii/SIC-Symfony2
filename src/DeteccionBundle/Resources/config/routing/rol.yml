@@ -1,0 +1,30 @@
+rol:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Rol:index" }
+
+rol_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Rol:show" }
+
+rol_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Rol:new" }
+
+rol_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Rol:create" }
+    methods:  POST
+
+rol_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Rol:edit" }
+
+rol_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Rol:update" }
+    methods:  [POST, PUT]
+
+rol_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Rol:delete" }
+    methods:  [POST, DELETE]

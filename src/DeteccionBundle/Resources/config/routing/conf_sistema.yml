@@ -1,0 +1,30 @@
+conf_sistema:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Conf_sistema:index" }
+
+conf_sistema_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Conf_sistema:show" }
+
+conf_sistema_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Conf_sistema:new" }
+
+conf_sistema_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Conf_sistema:create" }
+    methods:  POST
+
+conf_sistema_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Conf_sistema:edit" }
+
+conf_sistema_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Conf_sistema:update" }
+    methods:  [POST, PUT]
+
+conf_sistema_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Conf_sistema:delete" }
+    methods:  [POST, DELETE]

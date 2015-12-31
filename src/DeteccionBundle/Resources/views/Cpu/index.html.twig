@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Cpu list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nse</th>
+                <th>Nom</th>
+                <th>Fab</th>
+                <th>Sepro</th>
+                <th>Nopro</th>
+                <th>Nupro</th>
+                <th>Vepro</th>
+                <th>Lopro</th>
+                <th>Fapro</th>
+                <th>Arpro</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cpu_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nse }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.fab }}</td>
+                <td>{{ entity.sepro }}</td>
+                <td>{{ entity.nopro }}</td>
+                <td>{{ entity.nupro }}</td>
+                <td>{{ entity.vepro }}</td>
+                <td>{{ entity.lopro }}</td>
+                <td>{{ entity.fapro }}</td>
+                <td>{{ entity.arpro }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('cpu_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cpu_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('cpu_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

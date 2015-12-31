@@ -1,0 +1,30 @@
+memoria:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Memoria:index" }
+
+memoria_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Memoria:show" }
+
+memoria_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Memoria:new" }
+
+memoria_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Memoria:create" }
+    methods:  POST
+
+memoria_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Memoria:edit" }
+
+memoria_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Memoria:update" }
+    methods:  [POST, PUT]
+
+memoria_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Memoria:delete" }
+    methods:  [POST, DELETE]

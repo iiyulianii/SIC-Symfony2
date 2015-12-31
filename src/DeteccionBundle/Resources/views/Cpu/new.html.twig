@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                  Registro de EQUIPOS DE COMPUTO
+                </header>
+                <div class="panel-body">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            {{ form_label(form.nse,'Serial de la Máquina:') }}
+                            {{ form_widget(form.nse, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.nse) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.nom,'Nombre:') }}
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.nom) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.fab,'Fabricante:') }}
+                            {{ form_widget(form.fab, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.fab) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.rol,'Rol de la Máquina:') }}
+                            {{ form_widget(form.rol, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.rol) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.seccion,'Seccion a la que pertenece:') }}
+                            {{ form_widget(form.seccion, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.seccion) }}</span>
+                        </div>                        
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="border-head">
+                          <h4>Informacion de Microprocesador</h4>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.sepro,'Serial de Microprocesador:') }}
+                            {{ form_widget(form.sepro, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.sepro) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.nopro,'Nombre M:') }}
+                            {{ form_widget(form.nopro, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.nopro) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.nupro,'# de Núcleos:') }}
+                            {{ form_widget(form.nupro, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.nupro) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.lopro,'# M. Lógicos:') }}
+                            {{ form_widget(form.lopro, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.lopro) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.vepro,'Velocidad M:') }}
+                            {{ form_widget(form.vepro, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.vepro) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.fapro,'Fabricante M:') }}
+                            {{ form_widget(form.fapro, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.fapro) }}</span>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.arpro,'Arquitectura M:') }}
+                            {{ form_widget(form.arpro, {'attr': {'class': 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(form.arpro) }}</span>
+                        </div>
+                    </div>                  
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+        {# DISCOS DUROS #}
+        <div class="col-lg-3">
+            <section class="panel">
+                <header class="panel-heading">Disco duro</header>
+                <div class="panel-body">
+                    {{ form_widget(form.discos) }}
+                </div>
+            </section>
+        </div>
+        {# MEMORIAS #}
+        <div class="col-lg-3">
+            <section class="panel">
+                <header class="panel-heading">Memoria RAM</header>
+                <div class="panel-body">
+                    {{ form_widget(form.memorias) }}
+                </div>
+            </section>                        
+        </div>
+        {# UNIDAD OPTICA #}
+        <div class="col-lg-3">
+            <section class="panel">
+                <header class="panel-heading">U. Optica</header>
+                <div class="panel-body">
+                    {{ form_widget(form.uopticas) }}
+                </div>
+            </section>                        
+        </div>
+        {# T. RED #}
+        <div class="col-lg-3">
+            <section class="panel">
+                <header class="panel-heading">T. Red</header>
+                <div class="panel-body">
+                    {{ form_widget(form.tredes) }}
+                </div>
+            </section>                        
+        </div>
+    </div>
+{{ form_end(form) }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+   {% include 'scripts.html' %}
+{% endblock %}
+

@@ -1,0 +1,30 @@
+cpu:
+    path:     /
+    defaults: { _controller: "DeteccionBundle:Cpu:index" }
+
+cpu_show:
+    path:     /{id}/show
+    defaults: { _controller: "DeteccionBundle:Cpu:show" }
+
+cpu_new:
+    path:     /new
+    defaults: { _controller: "DeteccionBundle:Cpu:new" }
+
+cpu_create:
+    path:     /create
+    defaults: { _controller: "DeteccionBundle:Cpu:create" }
+    methods:  POST
+
+cpu_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DeteccionBundle:Cpu:edit" }
+
+cpu_update:
+    path:     /{id}/update
+    defaults: { _controller: "DeteccionBundle:Cpu:update" }
+    methods:  [POST, PUT]
+
+cpu_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DeteccionBundle:Cpu:delete" }
+    methods:  [POST, DELETE]

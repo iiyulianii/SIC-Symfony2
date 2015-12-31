@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Memoria list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ser</th>
+                <th>Mar</th>
+                <th>Cap</th>
+                <th>Vel</th>
+                <th>Tip</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('memoria_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.ser }}</td>
+                <td>{{ entity.mar }}</td>
+                <td>{{ entity.cap }}</td>
+                <td>{{ entity.vel }}</td>
+                <td>{{ entity.tip }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('memoria_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('memoria_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('memoria_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

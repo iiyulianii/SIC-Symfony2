@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Deteccion</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Seg1</th>
+                <td>{{ entity.seg1 }}</td>
+            </tr>
+            <tr>
+                <th>Seg2</th>
+                <td>{{ entity.seg2 }}</td>
+            </tr>
+            <tr>
+                <th>Seg3</th>
+                <td>{{ entity.seg3 }}</td>
+            </tr>
+            <tr>
+                <th>Seg4</th>
+                <td>{{ entity.seg4 }}</td>
+            </tr>
+            <tr>
+                <th>Seg5</th>
+                <td>{{ entity.seg5 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('deteccion') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('deteccion_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

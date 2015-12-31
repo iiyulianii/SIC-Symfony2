@@ -1,0 +1,51 @@
+deteccion_uoptica:
+    resource: "@DeteccionBundle/Resources/config/routing/uoptica.yml"
+    prefix:   /uoptica
+
+deteccion_tred:
+    resource: "@DeteccionBundle/Resources/config/routing/tred.yml"
+    prefix:   /tred
+
+deteccion_seccion:
+    resource: "@DeteccionBundle/Resources/config/routing/seccion.yml"
+    prefix:   /seccion
+
+deteccion_rol:
+    resource: "@DeteccionBundle/Resources/config/routing/rol.yml"
+    prefix:   /rol
+
+deteccion_memoria:
+    resource: "@DeteccionBundle/Resources/config/routing/memoria.yml"
+    prefix:   /memoria
+
+deteccion_disco:
+    resource: "@DeteccionBundle/Resources/config/routing/disco.yml"
+    prefix:   /disco
+
+deteccion_deteccion:
+    resource: "@DeteccionBundle/Resources/config/routing/deteccion.yml"
+    prefix:   /deteccion
+
+deteccion_cpu:
+    resource: "@DeteccionBundle/Resources/config/routing/cpu.yml"
+    prefix:   /cpu
+
+deteccion_conf_sistema:
+    resource: "@DeteccionBundle/Resources/config/routing/conf_sistema.yml"
+    prefix:   /conf_sistema
+
+deteccion_conf_red:
+    resource: "@DeteccionBundle/Resources/config/routing/conf_red.yml"
+    prefix:   /conf_red
+
+deteccion_aplicativo:
+    resource: "@DeteccionBundle/Resources/config/routing/aplicativo.yml"
+    prefix:   /aplicativo
+
+deteccion_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: DeteccionBundle:Default:index }
+
+deteccion_index:
+    path:     /deteccion/save/{online}
+    defaults: { _controller: DeteccionBundle:Guardar:save }

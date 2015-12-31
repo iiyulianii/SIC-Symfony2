@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sistema de Contro e Inventario">
+        <meta name="author" content="Yulian David">
+        <title>{% block title %}SIC::.ITP!{% endblock %}</title>
+        {% block stylesheets %}
+            <!--Core CSS -->
+
+            <link rel="stylesheet" href="{{ asset('/public/bs3/css/bootstrap.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/js/jquery-ui/jquery-ui-1.10.1.custom.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/css/bootstrap-reset.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/font-awesome/css/font-awesome.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/js/jvector-map/jquery-jvectormap-1.2.2.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/css/clndr.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/js/css3clock/css/style.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/js/morris-chart/morris.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/css/style.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/public/css/style-responsive.css') }}" />
+
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <section id="container" >
+            {% include 'default/menu_top.html' %}
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper">
+                    {% block body %}
+                            <!-- page start-->
+                    {% endblock %}
+                </section>
+            </section>
+        </section>
+        {% block javascripts %}
+            <!--Core js-->
+            <script src="{{ asset('public/js/jquery.js') }}"></script>
+
+            <script src="{{ asset('public/bs3/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('public/js/jquery.dcjqaccordion.2.7.js') }}"></script>
+            <script src="{{ asset('public/js/jquery.scrollTo.min.js') }}"></script>
+            <script src="{{ asset('public/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js') }}"></script>
+            <script src="{{ asset('public/js/jquery.nicescroll.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
